@@ -36,5 +36,5 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
 #        file: target/release/${{ matrix.artifact_name }}
-        file: dist/biliup-*.tar.gz
+        file: dist/*
         tag: ${{ github.ref }}
