@@ -22,11 +22,11 @@ jobs:
         pip install setuptools wheel twine build
         npm install
         pip install .
+        echo "version=${tag%.*}" >> $GITHUB_ENV
     - name: Build
       run: |
         npm run build 
         python -m build
-        tree dist
     # Optionally verify that it works (provided that it does not need user interaction)
     #- run: ./dist/your-code/your-code
     - uses: actions/upload-artifact@v4
@@ -37,6 +37,6 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
 #        file: target/release/${{ matrix.artifact_name }}
-        file: dist/biliup
-        asset_name: biliup_$tag
+        file: dist/biliup-${{ version }}.tar.gz
+        asset_name: biliup-${{ version }}.tar.gz
         tag: ${{ github.ref }}
