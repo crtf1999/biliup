@@ -22,8 +22,11 @@ jobs:
         pip install setuptools wheel twine build
         npm install
         pip install .
-        echo "tag: $tag - ${tag%.*}"
         echo "version=${tag%.*}" >> $GITHUB_ENV
+    - name: Show modified string
+      run: |
+        echo "Modified string (tag): $tag"
+        echo "Modified string (version): $version"
     - name: Build
       run: |
         npm run build 
