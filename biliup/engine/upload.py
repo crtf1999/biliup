@@ -43,7 +43,7 @@ class UploadBase:
                     save.append(dbfile.file)
         for file_name in os.listdir('.'):
             # 可能有两层后缀.with_suffix('')去掉一层.stem取文件名
-            if (index in file_name or pathlib.Path(file_name).with_suffix('').stem in save ) and os.path.isfile(file_name):
+            if (pathlib.Path(file_name).with_suffix('').stem in save ) and os.path.isfile(file_name):
                 file_list.append(file_name)
         if len(file_list) == 0:
             return []
