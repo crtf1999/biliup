@@ -26,6 +26,7 @@ jobs:
       run: |
         npm run build 
         python -m build
+        tree dist
     # Optionally verify that it works (provided that it does not need user interaction)
     #- run: ./dist/your-code/your-code
     - uses: actions/upload-artifact@v4
